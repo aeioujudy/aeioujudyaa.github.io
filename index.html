@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://blocklypro.webduino.io/live-preview-platform.html#-M4JQ92UFoyG0cgaIGic -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Webduino Blockly Demo 02</title>
+  <script src="./index_files/jquery.min.js.下載"></script>
+  <script src="./index_files/webduino-all-0.4.20.min.js.下載"></script>
+  <script src="./index_files/webduino-blockly.min.js.下載"></script>
+  <script src="./index_files/firebase.min.js.下載"></script>
+  <script src="./index_files/runtime.min.js.下載"></script>
+
+  <style>#demo-area-02-light img {
+  height: 200px;
+  display: none;
+  pointer-events: auto!important;
+}
+
+#demo-area-02-light.on #demo-area-02-on {
+  display: inline-block;
+  pointer-events: auto!important;
+}
+
+#demo-area-02-light.off #demo-area-02-off {
+  display: inline-block;
+  pointer-events: auto!important;
+}</style>
+</head>
+
+<body>
+  <div><div id="demo-area-02-light" class="off">
+    <img src="./index_files/off.jpg" id="demo-area-02-off">
+    <img src="./index_files/on.jpg" id="demo-area-02-on">
+  </div></div>
+
+  <script>'use strict';
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } step("next"); }); }; }
+
+_asyncToGenerator(regeneratorRuntime.mark(function _callee4() {
+  var servo, _E4_B8_8A, _E4_B8_8B, button;
+
+  return regeneratorRuntime.wrap(function _callee4$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+
+          boardReady({ board: 'Smart', device: '10VEAeRV', transport: 'mqtt' }, (function () {
+            var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(board) {
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                while (1) {
+                  switch (_context3.prev = _context3.next) {
+                    case 0:
+                      board.samplingInterval = 50;
+                      servo = getServo(board, 0);
+                      servo.angle = 80;
+                      document.getElementById('demo-area-02-light').className = 'off';
+                      _E4_B8_8A = 89;
+                      _E4_B8_8B = 103;
+                      button = getButton(board, 5);
+                      button.on('released', _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+                        return regeneratorRuntime.wrap(function _callee$(_context) {
+                          while (1) {
+                            switch (_context.prev = _context.next) {
+                              case 0:
+                                document.getElementById('demo-area-02-light').className = 'on';
+                                servo.angle = _E4_B8_8B;
+                                _context.next = 4;
+                                return delay(0.3);
+
+                              case 4:
+                                servo.angle = _E4_B8_8A;
+                                _context.next = 7;
+                                return delay(1.5);
+
+                              case 7:
+                                document.getElementById('demo-area-02-light').className = 'off';
+
+                              case 8:
+                              case 'end':
+                                return _context.stop();
+                            }
+                          }
+                        }, _callee, this);
+                      })));
+                      document.getElementById('demo-area-02-light').addEventListener('click', _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                          while (1) {
+                            switch (_context2.prev = _context2.next) {
+                              case 0:
+                                document.getElementById('demo-area-02-light').className = 'on';
+                                servo.angle = _E4_B8_8B;
+                                _context2.next = 4;
+                                return delay(0.3);
+
+                              case 4:
+                                servo.angle = _E4_B8_8A;
+                                _context2.next = 7;
+                                return delay(1.5);
+
+                              case 7:
+                                document.getElementById('demo-area-02-light').className = 'off';
+
+                              case 8:
+                              case 'end':
+                                return _context2.stop();
+                            }
+                          }
+                        }, _callee2, this);
+                      })));
+
+                    case 9:
+                    case 'end':
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+
+            return function (_x) {
+              return ref.apply(this, arguments);
+            };
+          })());
+
+        case 1:
+        case 'end':
+          return _context4.stop();
+      }
+    }
+  }, _callee4, this);
+}))();</script>
+
+
+</body></html>
